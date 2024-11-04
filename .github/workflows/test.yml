@@ -17,8 +17,7 @@ jobs:
           # Add any setup commands if needed (e.g., installing dependencies)
 
       - name: Run clean  # Subtask name
-        run: make
-        run: ./clean > cleaned_wbcd.txt  # Run the test script and redirect output
+        run: make; ./clean > cleaned_wbcd.txt  # Run the test script and redirect output
 
       - name: Upload Test Results  # Subtask name
         if: ${{ always() }}  # Do this even if the previous subtask returned a fail code
