@@ -1,0 +1,29 @@
+name: CI - test clean utility
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4  # Check out the repository
+      
+      - name: Set Up Environment  # Optional: You can set up any required environment here
+        run: |
+          echo "Setting up environment..."
+          # Add any setup commands if needed (e.g., installing dependencies)
+
+      - name: Run clean  # Subtask name
+        run: make
+        run: ./clean > cleaned_wbcd.txt  # Run the test script and redirect output
+
+      - name: Upload Test Results  # Subtask name
+        if: ${{ always() }}  # Do this even if the previous subtask returned a fail code
+        uses: actions/upload-artifact@v4  # This is an upload task
+        with:
+          name: Test Results  # Artifact name
+          path: ./cleaned_wbcd.txt  # Path to the test results file
+
