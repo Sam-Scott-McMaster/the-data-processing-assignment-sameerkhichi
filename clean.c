@@ -121,6 +121,16 @@ void clean_impute(float** data, int rows, int cols){
     }
 }
 
+//printing values
 void output_data(float** data, int rows, int cols){
 
+    printf("%d %d\n", rows, cols); //outputting # of rows and columns
+
+    //going through the entire array and printing the values
+    for(int i = 0; i < rows; i++){
+        for(int j = 0; j < cols, j++){
+            printf("%.3f ", data[i][j]);
+        }
+        printf("\n"); //for formatting purposes
+    }
 }
