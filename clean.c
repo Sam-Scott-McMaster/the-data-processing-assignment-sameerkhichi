@@ -6,6 +6,7 @@ Student Number: 400518172
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdbool.h>
 #include "clean.h"
 
 //reads the data and checks for memory allocation
