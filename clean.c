@@ -22,10 +22,10 @@ float** read_data(int* rows, int* cols){
     }
 
 
+    //making sure no errors occured in checking the row and column size
     if( scanf("%d %d", rows, cols) != 2 ){
         fprintf(stderr, "There was an error checking row and column sizes. \n");
     }
-
 
     for(int i = 0; i < *rows; i++){
 

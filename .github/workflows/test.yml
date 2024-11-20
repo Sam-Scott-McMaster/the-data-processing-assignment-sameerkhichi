@@ -21,9 +21,18 @@ jobs:
       
       - name: run clean
         run: ./clean <wbcd.txt >cleaned_wbcd.txt
+      
+      - name: run clean with -d flag
+        run: ./clean -d <wbcd.txt >d_cleaned_wbcd.txt
 
       - name: Upload Test Results  # Subtask name
         uses: actions/upload-artifact@v4  # This is an upload task
         with:
           name: Test Results  # Artifact name
           path: ./cleaned_wbcd.txt  # Path to the test results file
+      
+      - name: Upload Test Results  # Subtask name
+        uses: actions/upload-artifact@v4  # This is an upload task
+        with:
+          name: Test Results with -d flag  # Artifact name
+          path: ./d_cleaned_wbcd.txt  # Path to the test results file
