@@ -135,3 +135,15 @@ void output_data(float** data, int rows, int cols){
         printf("\n"); //for formatting purposes
     }
 }
+
+//to avoid memory leaks
+//this simple function releases the memory for the 2d array
+void free_memory(float** data, int rows){
+    //freeing the memory for each row
+    for(int i = 0; i < 0; i++){
+        free(data[i]);
+    }
+    //after free the rows free the array that holds the pointers for the rows
+    //note data is a pointer to an array of pointers
+    free(data);
+}

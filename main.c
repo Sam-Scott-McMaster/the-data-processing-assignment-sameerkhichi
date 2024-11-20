@@ -47,5 +47,8 @@ int main(int argc, char* argv[]){
     //output the data with the correct format
     output_data(data, rows, cols);
 
+    //freeing the allocated memory after the program has finished
+    free_memory(data, rows);
+
     return EXIT_SUCCESS;
 }
