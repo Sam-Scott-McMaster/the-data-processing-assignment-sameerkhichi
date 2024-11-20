@@ -101,7 +101,7 @@ void clean_impute(float** data, int rows, int cols){
         float column_average = 0.0;
 
         //going through the rows, finding totals and number of elements that arent a NAN values
-        for(int i = 0; i < rows, i++){
+        for(int i = 0; i < rows; i++){
             if(!isnan(data[i][j])){
                 column_total += data[i][j];
                 counter++;
@@ -129,7 +129,7 @@ void output_data(float** data, int rows, int cols){
 
     //going through the entire array and printing the values
     for(int i = 0; i < rows; i++){
-        for(int j = 0; j < cols, j++){
+        for(int j = 0; j < cols; j++){
             printf("%.3f ", data[i][j]);
         }
         printf("\n"); //for formatting purposes
