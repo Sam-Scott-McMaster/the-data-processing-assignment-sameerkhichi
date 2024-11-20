@@ -22,7 +22,7 @@ float** read_data(int* rows, int* cols){
     }
 
 
-    if( scanf("%d,%d", rows, cols) != 2 ){
+    if( scanf("%d %d", rows, cols) != 2 ){
         fprintf(stderr, "There was an error checking row and column sizes. \n");
     }
 
@@ -79,14 +79,12 @@ float** clean_delete(float** data, int rows, int cols, int* manipulated_rows){
             }
             (*manipulated_rows)++;
         }
-
-        //resizes a block of memory using realloc that was allocated using malloc
-        //perameter: previous allocated memory array, new memory size block calculation respectively
-        manipulated_data = realloc(manipulated_data, (*manipulated_rows) *sizeof(float*));
-        
-        return manipulated_data; //returns this array
-
     }
+    //resizes a block of memory using realloc that was allocated using malloc
+    //perameter: previous allocated memory array, new memory size block calculation respectively
+    manipulated_data = realloc(manipulated_data, (*manipulated_rows) *sizeof(float*));
+
+    return manipulated_data; //returns this array
 }
 
 //replacing the NAN values with the averages of the column
@@ -97,7 +95,7 @@ void clean_impute(float** data, int rows, int cols){
 
         //just some temporary variables
         int counter = 0;
-        float column_total;
+        float column_total = 0.0;
         float column_average = 0.0;
 
         //going through the rows, finding totals and number of elements that arent a NAN values

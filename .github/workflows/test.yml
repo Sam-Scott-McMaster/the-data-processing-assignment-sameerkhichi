@@ -27,4 +27,3 @@ jobs:
         with:
           name: Test Results  # Artifact name
           path: ./cleaned_wbcd.txt  # Path to the test results file
-
