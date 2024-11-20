@@ -1,2 +1,2 @@
-clean: clean.c
-	gcc -o clean clean.c
+clean: main.c clean.c clean.h
+	gcc -o clean main.c clean.c
