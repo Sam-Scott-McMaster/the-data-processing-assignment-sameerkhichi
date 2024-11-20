@@ -8,7 +8,7 @@ Student Number: 400518172
 #include <math.h>
 #include "clean.h"
 
-
+//reads the data and checks for memory allocation
 float** read_data(int* rows, int* cols){
 
     
@@ -45,7 +45,7 @@ float** read_data(int* rows, int* cols){
     return data;
 }
 
-
+//deletes NAN values
 float** clean_delete(float** data, int rows, int cols, int* manipulated_rows){
 
     //pointer keeping track of the rows checked for NAN
@@ -88,8 +88,37 @@ float** clean_delete(float** data, int rows, int cols, int* manipulated_rows){
     }
 }
 
+//replacing the NAN values with the averages of the column
 void clean_impute(float** data, int rows, int cols){
 
+    //going through the columns checking for NAN values
+    for(int j = 0; j < cols; j++){
+
+        //just some temporary variables
+        int counter = 0;
+        float column_total;
+        float column_average = 0.0;
+
+        //going through the rows, finding totals and number of elements that arent a NAN values
+        for(int i = 0; i < rows, i++){
+            if(!isnan(data[i][j])){
+                column_total += data[i][j];
+                counter++;
+            }
+        }
+
+        //finding the average afterwards
+        if(counter > 0){
+            column_average = (column_total / counter);
+        }
+
+        //replacing the row with the average if there is a NAN value
+        for(int i = 0; i < rows; i++){
+            if(isnan(data[i][j])){
+                data[i][j] = column_average;
+            }
+        }
+    }
 }
 
 void output_data(float** data, int rows, int cols){
