@@ -23,6 +23,11 @@ int main(int argc, char* argv[]){
     if( (argc == 2) && (strcmp(argv[1], "-d") == 0) ){
         dFlagChecker = true;
     }
+    //if the help flag is used
+    if( (argc == 2) && (strcmp(argv[1], "--help") == 0) ){
+        help_flag();
+        return EXIT_SUCCESS;
+    }
 
     //reading the data as a 2D array
     data = read_data(&rows, &cols);

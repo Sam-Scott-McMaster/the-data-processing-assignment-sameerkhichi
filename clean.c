@@ -145,3 +145,11 @@ void free_memory(float** data, int rows){
     //note data is a pointer to an array of pointers
     free(data);
 }
+
+void help_flag(){
+    puts("Usage: clean [-d]");
+    puts("Use of '-d' will clean selected file using a deletion stratagey");
+    puts("This will delete rows with bad data from an array");
+    puts("If '-d' is not used, an imputation stratagey will be used for cleaning");
+    puts("Imputation will replace any NAN value with an estimate (avergae of the row)");
+}
